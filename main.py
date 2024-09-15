@@ -16,11 +16,15 @@ for filepath in filepaths:
 
     # Извлекаем номер счета из имени файла
     filename = Path(filepath).stem
-    invoice_num = filename.split('-')[0]
+    invoice_number = filename.split('-')[0]
+    invoice_date = filename.split('-')[1]
 
     # Добавляем текст в PDF
     pdf.set_font(family='Times', size=16, style="B")
-    pdf.cell(w=50, h=8, txt=f"Invoice No. {invoice_num}")
+    pdf.cell(w=50, h=8, txt=f"Invoice No. {invoice_number}", ln=True)
+
+    pdf.set_font(family='Times', size=16, style="B")
+    pdf.cell(w=50, h=8, txt=f"Date: {invoice_date}")
 
     # Сохраняем PDF-файл
     pdf.output(f"PDFs/{filename}.pdf")

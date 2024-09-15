@@ -18,3 +18,5 @@ node_modules/
 .vscode
 
 # other files
+texts
+some.py
